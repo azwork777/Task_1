@@ -6,9 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double smallRadius = inputSmallRadius();
-        double middleRadius = inputMiddleRadius();
-        double largeRadius = inputLargeRadius();
+        double smallRadius = inputRadius("наименьшей");
+        double middleRadius = inputRadius("средней");
+        double largeRadius = inputRadius("наибольшей");
 
         checkError(smallRadius, middleRadius, largeRadius);
 
@@ -17,8 +17,8 @@ public class Main {
         outputSpace(space);
     }
 
-    static double inputSmallRadius() {
-        System.out.println("Введите радиус наименьшей окружности");
+    static double inputRadius(String name) {
+        System.out.printf("Введите радиус %s окружности: ", name);
         Scanner sc = new Scanner(System.in);
         double r = sc.nextDouble();
         if (r <= 0) {
@@ -28,27 +28,6 @@ public class Main {
         return r;
     }
 
-    static double inputMiddleRadius() {
-        System.out.println("Введите радиус средней окружности");
-        Scanner sc = new Scanner(System.in);
-        double r = sc.nextDouble();
-        if (r <= 0) {
-            System.out.println("Ошибка при вводе данных: радиус не может быть меньше или равен нулю");
-            System.exit(1);
-        }
-        return r;
-    }
-
-    static double inputLargeRadius() {
-        System.out.println("Введите радиус наибольшей окружности");
-        Scanner sc = new Scanner(System.in);
-        double r = sc.nextDouble();
-        if (r <= 0) {
-            System.out.println("Ошибка при вводе данных: радиус не может быть меньше или равен нулю");
-            System.exit(1);
-        }
-        return r;
-    }
 
     static void checkError(double small, double middle, double large) {
         if (small >= middle || small >= large || middle >= large) {
